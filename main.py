@@ -1,11 +1,9 @@
-from analyzer import extract_external_ips, sensitive_ports, log_over_5000, log_size_labeling, ips, ip_dictionary
 from reader import read_log
+from checks import dict_port, unusual_hours
 
 
 log_data = read_log("network_traffic.log")
-ip_dict = ip_dictionary(log_data)
 
-
-
-
-
+a = unusual_hours(log_data)
+for i in a:
+    print (i)
