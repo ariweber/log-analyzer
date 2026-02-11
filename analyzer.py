@@ -24,6 +24,20 @@ def log_size_labeling(log_data):
     return log_data    
 
 
+def ips(log_data):
+    list_ip = [log[1] for log in log_data]
+    return list_ip
+
+def ip_dictionary(log_data):
+    ip_data = ips(log_data)
+    dict_ip = {ip: ip_data.count(ip) for ip in set(ip_data)}
+    return dict_ip
+
+
+
+
+
+
     
 
 
