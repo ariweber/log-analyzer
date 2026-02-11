@@ -6,6 +6,14 @@ def extract_external_ips(log_data):
             external_ips.append(ip)
     return external_ips
 
+
+def sensitive_ports(log_data):
+    list_ensitive_ports = [port for port in log_data if port[3] == "3389" or port[3] == "22" or port[3] == "23"]
+    return list_ensitive_ports
+
+
+    
+
     
 
     
