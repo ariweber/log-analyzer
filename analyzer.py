@@ -11,6 +11,11 @@ def sensitive_ports(log_data):
     list_ensitive_ports = [port for port in log_data if port[3] == "3389" or port[3] == "22" or port[3] == "23"]
     return list_ensitive_ports
 
+def log_over_5000(log_data):
+    list_log_5000 =[log for log in log_data if int(log[5])>5000]
+    return list_log_5000
+    
+
 
     
 
