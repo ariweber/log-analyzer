@@ -31,7 +31,7 @@ def unusual_hours(log_data):
     log_hours = [log for log in log_data if 0 <= int(log[0][11:13]) < 6]
     return log_hours
     
-def detect_suspicious_ips(log_data):
+def detect_suspicious_ip(log_data):
     external_ips = set(extract_ips(log_data))          # מחזיר IP-ים
     sensitive_logs = sensitive_ports(log_data)         # מחזיר לוגים מלאים
     large_logs = log_over_5000(log_data)               # מחזיר לוגים מלאים
@@ -56,6 +56,8 @@ def detect_suspicious_ips(log_data):
             if ip not in suspicious:
                 suspicious[ip] = []
             # למנוע כפילויות
-            suspicious[ip] = list(set(suspicious[ip] + reasons))
+            for r in reasons:
+                if r not in suspicious[ip]:
+                    suspicious[ip].append(r)
 
     return suspicious
