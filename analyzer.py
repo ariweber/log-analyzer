@@ -14,6 +14,16 @@ def sensitive_ports(log_data):
 def log_over_5000(log_data):
     list_log_5000 =[log for log in log_data if int(log[5])>5000]
     return list_log_5000
+
+def log_size_labeling(log_data):
+    for log in log_data:
+        if int(log[5]) >5000:
+            log.append("LARG")
+        else:
+            log.append("NORMAL")
+    return log_data    
+
+
     
 
 
