@@ -1,4 +1,4 @@
-def extract_external_ips(log_data):
+def extract_ips(log_data):
     external_ips = []
     for log in log_data:
         ip = log[1]
@@ -8,20 +8,13 @@ def extract_external_ips(log_data):
 
 
 def sensitive_ports(log_data):
-    list_ensitive_ports = [port for port in log_data if port[3] == "3389" or port[3] == "22" or port[3] == "23"]
+    list_ensitive_ports = [log for log in log_data if log[3] == "3389" or log[3] == "22" or log[3] == "23"]
     return list_ensitive_ports
 
-def log_over_5000(log_data):
-    list_log_5000 =[log for log in log_data if int(log[5])>5000]
-    return list_log_5000
 
-def log_size_labeling(log_data):
-    for log in log_data:
-        if int(log[5]) >5000:
-            log.append("LARG")
-        else:
-            log.append("NORMAL")
-    return log_data    
+
+
+
 
 
     
