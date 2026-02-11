@@ -61,3 +61,6 @@ def detect_suspicious_ip(log_data):
                     suspicious[ip].append(r)
 
     return suspicious
+
+def get_hours(data):
+    return list(map(lambda log: log[0][11:13], data))
